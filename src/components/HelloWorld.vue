@@ -1,13 +1,14 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h1>{{ title }}</h1>
+    <h1 :style="{ backgroundColor: color }">{{ title }}</h1>
     <h1>{{ other }}</h1>
     <h1 @click="attachRed = !attachRed" :class="{ red: attachRed }">
       {{ sayHello() }}
     </h1>
     <p>{{ counter }}</p>
     <v-btn outline color="primary" dark>text</v-btn>
+    <input v-model="color" type="text" />
   </div>
 </template>
 
@@ -17,7 +18,8 @@ export default {
   data: () => ({
     title: "hello the world!!! as title",
     other: "other hello 22",
-    attachRed: false
+    attachRed: false,
+    color: "gray"
   }),
   methods: {
     sayHello: () => "Hello as a function"
